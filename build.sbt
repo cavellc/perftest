@@ -1,6 +1,6 @@
 organization := "com.cavellc"
-name := "perftest"
-version := "0.1"
+name := "cave-perftest"
+version := "git describe --tags --dirty --always".!!.stripPrefix("v").trim
 scalaVersion := "2.11.5"
 
 resolvers += "Typesafe Repo" at "http://repo.typesafe.com/typesafe/releases/"
