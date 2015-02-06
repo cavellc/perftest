@@ -25,9 +25,7 @@ class TestResult(resultsPath: String, config: Config) {
     val resultsDir = config.getString("resultsDir")
     val hostname = InetAddress.getLocalHost.getHostName
 
-    val objectKey = s"$resultsDir/$hostname/simulation.log"
-
-    println(s"Using key $accessKey / $secretKey to store $objectKey.")
+    val objectKey = s"$resultsDir/simulation.$hostname.log"
 
     new AmazonS3Client(new BasicAWSCredentials(accessKey, secretKey)).putObject(bucketName, objectKey, logFiles.head)
   } else println(s"Unexpected number of log files: ${logFiles.size}")

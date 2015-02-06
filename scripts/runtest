@@ -1,13 +1,14 @@
 #!/bin/sh
 
 COUNT=$1
-USER_DATA=$2
+
+USER_DATA=$(pwd)/$(dirname $0)/userdata
 
 aws ec2 run-instances \
   --image-id ami-3a511352 \
   --key-name ionblaster \
   --security-group-ids sg-24ff6941 \
-  --instance-type m1.small \
+  --instance-type m1.xlarge \
   --enable-api-termination \
   --instance-initiated-shutdown-behavior terminate \
   --iam-instance-profile Arn=arn:aws:iam::698772785971:instance-profile/perf \
