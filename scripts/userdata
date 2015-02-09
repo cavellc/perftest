@@ -6,5 +6,5 @@ export aws_secret_access_key=`cat /tmp/creds | jq -r ".SecretAccessKey"`
 aws s3 cp s3://cavellc-perftest/metadata /tmp
 source /tmp/metadata
 docker login -e $DOCKER_EMAIL -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-docker run --net=host cavellc/cave-perftest:0.0.2 -DaccessKey=$PERFTEST_AK -DsecretKey=$PERFTEST_SK -DresultsDir=`date "+%Y-%m-%d-%H"`
+docker run --net=host cavellc/cave-perftest:0.0.3 -DaccessKey=$PERFTEST_AK -DsecretKey=$PERFTEST_SK -DresultsDir=`date "+%Y-%m-%d-%H"`
 shutdown -h now
